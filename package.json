@@ -1,6 +1,6 @@
 {
   "name": "google-closure-library-bundler",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Library for generating a Google Closure Library bundle",
   "main": "index.js",
   "files": [
