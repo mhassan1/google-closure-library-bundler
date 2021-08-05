@@ -2949,43 +2949,43 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"google-closure-compiler-java@npm:^20210106.0.0":
-  version: 20210106.0.0
-  resolution: "google-closure-compiler-java@npm:20210106.0.0"
-  checksum: a2d8a4c31c09a5ec82fb9d7e0a01aad597c234788bf3b3c17651772d1ac7b856106c68c2d30909c7f7832820f65ab6ec6d75271b45fc53b186f9f86465cca9f2
+"google-closure-compiler-java@npm:^20210601.0.0":
+  version: 20210601.0.0
+  resolution: "google-closure-compiler-java@npm:20210601.0.0"
+  checksum: 9ca769d5b84a8f1a9b3c000232be4e419546a4d7f8aa5cc72d35831b20151ad7c0fe76abfa4b8d57f2838b427e4cedc4410bf46c0cbcf271b4de3c612a0de427
   languageName: node
   linkType: hard
 
-"google-closure-compiler-linux@npm:^20210106.0.0":
-  version: 20210106.0.0
-  resolution: "google-closure-compiler-linux@npm:20210106.0.0"
-  checksum: a52ce5488ab224cef0d8f2e0c4413bd516344221c487fa6f15bef9ebbade031f6802e74e0eb696bb66204413a03b911aa1985ee8e551193849e795c486589786
+"google-closure-compiler-linux@npm:^20210601.0.0":
+  version: 20210601.0.0
+  resolution: "google-closure-compiler-linux@npm:20210601.0.0"
+  checksum: 3cbc688baccbe723863f6a1af7c6c6ba1d7455ae7714125e4c52eef3346930f7cf65323b1d8e1c269354e78684939725fe936c0380caf86bcabec7ccd3b644a3
   languageName: node
   linkType: hard
 
-"google-closure-compiler-osx@npm:^20210106.0.0":
-  version: 20210106.0.0
-  resolution: "google-closure-compiler-osx@npm:20210106.0.0"
-  checksum: cfb96db15a0684fbe9f0622f7f309218dec80fa595d94ea5a120e654a2b8cd450da6f242debc1663828a0d79c47f500e93e6c808c2908f05266aa2bb8e4c252e
+"google-closure-compiler-osx@npm:^20210601.0.0":
+  version: 20210601.0.0
+  resolution: "google-closure-compiler-osx@npm:20210601.0.0"
+  checksum: 1ccb1f5bf14ef1d65960733e8d0f0839fe677f59b50b45118a55d3d8b4f1aa29c60a5ea2b36f9894173f8c2b78e04d23e053cb9a8113f03f75c9e2f913535662
   languageName: node
   linkType: hard
 
-"google-closure-compiler-windows@npm:^20210106.0.0":
-  version: 20210106.0.0
-  resolution: "google-closure-compiler-windows@npm:20210106.0.0"
-  checksum: 78cfd4001ba2c091c9449ec2ea6e63132cfe6735e1cf25fbff7bc0a05de63c53c883bc9b6c0501239c3b1c81f6c828c0ea96ff9ac3212c26c3de9d9261c4845f
+"google-closure-compiler-windows@npm:^20210601.0.0":
+  version: 20210601.0.0
+  resolution: "google-closure-compiler-windows@npm:20210601.0.0"
+  checksum: 1f3fdf82bd3c1932e37ec56ef5d3cf24eaa7226c21c4689a3943bad9fc3badd366d7ad6443a1fa275e938bcb3174e6c2ca663b14aaa6c15216285f31948ee104
   languageName: node
   linkType: hard
 
-"google-closure-compiler@npm:^20210106.0.0":
-  version: 20210106.0.0
-  resolution: "google-closure-compiler@npm:20210106.0.0"
+"google-closure-compiler@npm:^20210601.0.0":
+  version: 20210601.0.0
+  resolution: "google-closure-compiler@npm:20210601.0.0"
   dependencies:
     chalk: 2.x
-    google-closure-compiler-java: ^20210106.0.0
-    google-closure-compiler-linux: ^20210106.0.0
-    google-closure-compiler-osx: ^20210106.0.0
-    google-closure-compiler-windows: ^20210106.0.0
+    google-closure-compiler-java: ^20210601.0.0
+    google-closure-compiler-linux: ^20210601.0.0
+    google-closure-compiler-osx: ^20210601.0.0
+    google-closure-compiler-windows: ^20210601.0.0
     minimist: 1.x
     vinyl: 2.x
     vinyl-sourcemaps-apply: ^0.2.0
@@ -2998,7 +2998,7 @@ fsevents@^1.2.7:
       optional: true
   bin:
     google-closure-compiler: cli.js
-  checksum: 274e52fee6c6a320995e8c59243b522a8f44da906bf48511be3e31aa76f2368c54e4c7bb827dc42bd10fef97cb2cf504412c2d0c82f19c8c146b62aad39008fb
+  checksum: dd0bf5ddc358409e74e8a8de91ac50e9e5bca355bb025d3a89e14f01c950f17ce8d0ba9ab3d77c8fb122972d493648d47d525087eff9a0b27cd45aeb2f0686b3
   languageName: node
   linkType: hard
 
@@ -3007,18 +3007,18 @@ fsevents@^1.2.7:
   resolution: "google-closure-library-bundler@workspace:."
   dependencies:
     closure-webpack-plugin: ^2.5.0
-    google-closure-compiler: ^20210106.0.0
-    google-closure-library: ^20210106.0.0
+    google-closure-compiler: ^20210601.0.0
+    google-closure-library: ^20210601.0.0
     jest: ^26.6.3
     last-call-webpack-plugin: ^3.0.0
     webpack: ^4.46.0
   languageName: unknown
   linkType: soft
 
-"google-closure-library@npm:^20210106.0.0":
-  version: 20210106.0.0
-  resolution: "google-closure-library@npm:20210106.0.0"
-  checksum: d7d3cf417f1bf73e1286f0a8075af1106c1e84a6f83fc39ef1713fcc177ffce306ea1dd21281e4730e278fd4c1df5d2126aef2f84454937c87a39260d87fd915
+"google-closure-library@npm:^20210601.0.0":
+  version: 20210601.0.0
+  resolution: "google-closure-library@npm:20210601.0.0"
+  checksum: 5042afb36f45a9e7e20ecff3df214f139cf145dacb567f683e9b48d9eaa4315a7352ab00c1eb53eac96fa4adda4a9f757cb7e54e7ac5136d397b4eacb60aaf98
   languageName: node
   linkType: hard
 

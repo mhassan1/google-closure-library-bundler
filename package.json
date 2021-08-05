@@ -27,8 +27,8 @@
   "homepage": "https://github.com/mhassan1/google-closure-library-bundler#readme",
   "dependencies": {
     "closure-webpack-plugin": "^2.5.0",
-    "google-closure-compiler": "^20210106.0.0",
-    "google-closure-library": "^20210106.0.0",
+    "google-closure-compiler": "^20210601.0.0",
+    "google-closure-library": "^20210601.0.0",
     "last-call-webpack-plugin": "^3.0.0",
     "webpack": "^4.46.0"
   },
