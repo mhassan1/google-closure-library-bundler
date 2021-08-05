@@ -3,7 +3,7 @@ node_js:
   - lts/*
   - node
 os: linux
-arch: arm64
+arch: ppc64le
 env:
   - YARN_GPG=no
 cache:
