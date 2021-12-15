@@ -21,7 +21,8 @@ const { join } = require('path')
 
 bundle('./entry.js', {
   path: join(__dirname, 'dist'),
-  filename: 'goog.js'
+  filename: 'goog.js',
+  hashFunction: 'md5' // required for node 17+
 }).then(() => {
   console.log('All bundled up!')
 })
