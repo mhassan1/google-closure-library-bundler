@@ -10,6 +10,7 @@ describe('bundle', () => {
       hashFunction: 'md5'
     })
     expect(readFileSync('./test/fixtures/output.js', 'utf8')).toEqual(readFileSync('./test/fixtures/expected.js', 'utf8'))
+    expect(() => require('./fixtures/output').string.Const.from('hello')).not.toThrow()
   })
 
   it('fails to create a bundle with invalid inputs', async () => {
