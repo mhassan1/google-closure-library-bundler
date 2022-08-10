@@ -7,7 +7,7 @@ module.exports.bundle = async (entry, output) => {
     output: {
       ...output,
       library: {
-        type: 'commonjs',
+        type: 'commonjs2',
         ...output.library
       }
     },
