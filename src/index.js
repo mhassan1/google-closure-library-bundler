@@ -1,48 +1,52 @@
 const webpack = require('webpack')
-const ClosurePlugin = require('closure-webpack-plugin')
-const LastCallWebpackPlugin = require('last-call-webpack-plugin')
+const { GoogleClosureLibraryWebpackPlugin } = require('google-closure-library-webpack-plugin/dist/Plugin')
 
 module.exports.bundle = async (entry, output) => {
   const compiler = webpack({
     entry,
-    output,
+    output: {
+      ...output,
+      library: {
+        type: 'commonjs',
+        ...output.library
+      }
+    },
     mode: 'production',
     devtool: false,
+    target: ['web', 'es5'],
     optimization: {
       minimize: true,
-      minimizer: [new ClosurePlugin({ mode: 'AGGRESSIVE_BUNDLE' })],
       concatenateModules: false
     },
     plugins: [
-      new ClosurePlugin.LibraryPlugin({
-        closureLibraryBase: require.resolve('google-closure-library/closure/goog/base'),
-        deps: [require.resolve('google-closure-library/closure/goog/deps')]
+      new GoogleClosureLibraryWebpackPlugin({
+        base: require.resolve('google-closure-library/closure/goog/base'),
+        sources: [entry],
+        target: 'commonjs'
       }),
-      new LastCallWebpackPlugin({
-        assetProcessors: [
-          {
-            regExp:  /.*/,
-            processor: async (assetName, asset) => {
-              let source = asset.source()
+      {
+        apply: (compiler) => {
+          const pluginDescriptor = { name: 'export-plugin', stage: compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE }
+          compiler.hooks.compilation.tap(pluginDescriptor, (compilation) => {
+            compilation.hooks.optimizeAssets.tapPromise(pluginDescriptor, async (assets) => {
+              for (const [assetName, asset] of Object.entries(assets)) {
+                let source = asset.source()
 
-              const exportsIndex = source.lastIndexOf('(function(__wpcc){')
-              if (exportsIndex === -1) throw new Error('Could not find place to put `module.exports`')
-              source = spliceString(source, exportsIndex, 'module.exports = ')
+                if (assetName.endsWith('LICENSE.txt')) continue
 
-              const googMatch = source.match(/(.+)=\1\|\|{};\1\.global=this\|\|self;/)
-              if (!googMatch) throw new Error('Could not find `goog` instantiation')
+                const googExportReplacement = 'var goog = __webpack_require__'
+                const googExportIndex = source.lastIndexOf(googExportReplacement)
 
-              const googVariable = googMatch[1]
+                source = source.slice(0, googExportIndex) +
+                  'var goog = __webpack_exports__ = __webpack_require__' +
+                  source.slice(googExportIndex + googExportReplacement.length)
 
-              const googReturnIndex = source.lastIndexOf('}).call(this || window, (window.__wpcc = window.__wpcc || {}));')
-              if (!googReturnIndex) throw new Error('Could not find place to put `return goog`')
-
-              return spliceString(source, googReturnIndex, `return ${googVariable};`)
-            },
-            phase: 'emit'
-          }
-        ],
-      })
+                assets[assetName] = new compiler.webpack.sources.RawSource(source)
+              }
+            })
+          })
+        }
+      }
     ]
   })
   return new Promise((resolve, reject) => {
@@ -54,5 +58,3 @@ module.exports.bundle = async (entry, output) => {
     })
   })
 }
-
-const spliceString = (string, start, insert) => string.slice(0, start) + insert + string.slice(start)
