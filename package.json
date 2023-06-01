@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/mhassan1/google-closure-library-bundler#readme",
   "dependencies": {
+    "@babel/core": "^7.22.1",
+    "@babel/preset-env": "^7.22.4",
     "google-closure-compiler": "^20210106.0.0",
     "google-closure-library": "^20210106.0.0",
     "google-closure-library-webpack-plugin": "^2.2.4",
