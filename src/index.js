@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const { GoogleClosureLibraryWebpackPlugin } = require('google-closure-library-webpack-plugin/dist/Plugin')
+const babel = require('@babel/core')
 
 module.exports.bundle = async (entry, output) => {
   const compiler = webpack({
@@ -40,6 +41,29 @@ module.exports.bundle = async (entry, output) => {
                 source = source.slice(0, googExportIndex) +
                   'var goog = __webpack_exports__ = __webpack_require__' +
                   source.slice(googExportIndex + googExportReplacement.length)
+
+                assets[assetName] = new compiler.webpack.sources.RawSource(source)
+              }
+            })
+          })
+        }
+      },
+      {
+        apply: (compiler) => {
+          const pluginDescriptor = { name: 'es5-plugin', stage: compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_COMPATIBILITY }
+          compiler.hooks.compilation.tap(pluginDescriptor, (compilation) => {
+            compilation.hooks.optimizeAssets.tapPromise(pluginDescriptor, async (assets) => {
+              for (const [assetName, asset] of Object.entries(assets)) {
+                let source = asset.source()
+
+                if (assetName.endsWith('LICENSE.txt')) continue
+
+                source = babel.transformSync(source, {
+                  configFile: false,
+                  babelrc: false,
+                  compact: false,
+                  presets: [require.resolve('@babel/preset-env')]
+                }).code
 
                 assets[assetName] = new compiler.webpack.sources.RawSource(source)
               }

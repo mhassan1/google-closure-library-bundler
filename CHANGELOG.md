@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.2.0] - 2023-06-01
+[2.2.0]: https://github.com/mhassan1/google-closure-library-bundler/compare/v2.1.0...v2.2.0
+
+- Transpile to ES5
+
 ## [2.1.0] - 2022-08-10
 [2.1.0]: https://github.com/mhassan1/google-closure-library-bundler/compare/v2.0.0...v2.1.0
 
