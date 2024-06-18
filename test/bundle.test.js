@@ -16,7 +16,7 @@ describe('bundle', () => {
   }, 15000)
 
   it('fails to create a bundle with invalid inputs', async () => {
-    expect(bundle('./test/fixtures/i-do-not-exist.js', {
+    await expect(bundle('./test/fixtures/i-do-not-exist.js', {
       path: join(__dirname, 'fixtures'),
       filename: 'output.js',
       hashFunction: 'md5'
