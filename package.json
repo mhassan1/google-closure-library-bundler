@@ -28,8 +28,8 @@
   "dependencies": {
     "@babel/core": "^7.22.1",
     "@babel/preset-env": "^7.22.4",
-    "google-closure-compiler": "^20210106.0.0",
-    "google-closure-library": "^20210106.0.0",
+    "google-closure-compiler": "^20250630.0.0",
+    "google-closure-library": "^20230802.0.0",
     "google-closure-library-webpack-plugin": "^2.2.4",
     "webpack": "^5.74.0"
   },

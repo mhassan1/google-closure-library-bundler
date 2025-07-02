@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.3.0] - 2025-07-02
+[2.3.0]: https://github.com/mhassan1/google-closure-library-bundler/compare/v2.2.0...v2.3.0
+
+- Upgrade `google-closure-library` and `google-closure-compiler`
+
 ## [2.2.0] - 2023-06-01
 [2.2.0]: https://github.com/mhassan1/google-closure-library-bundler/compare/v2.1.0...v2.2.0
 
