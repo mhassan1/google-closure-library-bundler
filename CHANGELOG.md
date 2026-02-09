@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.3.1] - 2026-02-09
+[2.3.1]: https://github.com/mhassan1/google-closure-library-bundler/compare/v2.3.0...v2.3.1
+
+- Bump vulnerable dependency `webpack`
+
 ## [2.3.0] - 2025-07-02
 [2.3.0]: https://github.com/mhassan1/google-closure-library-bundler/compare/v2.2.0...v2.3.0
 

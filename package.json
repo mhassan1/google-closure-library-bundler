@@ -31,7 +31,7 @@
     "google-closure-compiler": "^20250630.0.0",
     "google-closure-library": "^20230802.0.0",
     "google-closure-library-webpack-plugin": "^2.2.4",
-    "webpack": "^5.74.0"
+    "webpack": "^5.105.0"
   },
   "devDependencies": {
     "jest": "^29.7.0"

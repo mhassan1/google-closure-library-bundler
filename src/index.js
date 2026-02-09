@@ -2,6 +2,15 @@ const webpack = require('webpack')
 const { GoogleClosureLibraryWebpackPlugin } = require('google-closure-library-webpack-plugin/dist/Plugin')
 const babel = require('@babel/core')
 
+// hack to un-break `google-closure-library-webpack-plugin` due to https://github.com/webpack/webpack/pull/19795
+// see https://github.com/funte/google-closure-library-webpack-plugin/blob/e5286ad5/src/closure/ClosureModuleParserPlugin.ts#L36-L40
+const JavascriptParser = require('webpack/lib/javascript/JavascriptParser')
+const getFreeInfoFromVariable = JavascriptParser.prototype.getFreeInfoFromVariable
+JavascriptParser.prototype.getFreeInfoFromVariable = function (varName) {
+  if (varName === 'goog') return {}
+  return getFreeInfoFromVariable.call(this, varName)
+}
+
 module.exports.bundle = async (entry, output) => {
   const compiler = webpack({
     entry,
