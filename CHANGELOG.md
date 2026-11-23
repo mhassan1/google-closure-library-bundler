@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.4.0] - 2026-11-23
+[2.4.0]: https://github.com/mhassan1/google-closure-library-bundler/compare/v2.3.1...v2.4.0
+
+- Upgrade to babel 8
+
 ## [2.3.1] - 2026-02-09
 [2.3.1]: https://github.com/mhassan1/google-closure-library-bundler/compare/v2.3.0...v2.3.1
 

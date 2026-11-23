@@ -71,7 +71,7 @@ module.exports.bundle = async (entry, output) => {
                   configFile: false,
                   babelrc: false,
                   compact: false,
-                  presets: [require.resolve('@babel/preset-env')]
+                  presets: [[require.resolve('@babel/preset-env'), { targets: { ie: '11' } }]]
                 }).code
 
                 assets[assetName] = new compiler.webpack.sources.RawSource(source)
